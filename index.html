@@ -1,74 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>爱心展示</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-  }
-
-  .heart-container {
-    position: relative;
-    width: 100px;
-    height: 90px;
-  }
-
-  .heart {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  }
-
-  .heart:before,
-  .heart:after {
-    content: "";
-    position: absolute;
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-
-  .heart:before {
-    top: -50px;
-    left: 0;
-  }
-
-  .heart:after {
-    top: 0;
-    left: 50%;
-  }
-
-  .name {
-    position: absolute;
-    top: 120px; /* Adjusted to be below the heart */
-    left: 50%;
-    transform: translateX(-50%);
-    color: #333;
-    font-size: 24px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看板娘</title>
 </head>
 <body>
-
-<div class="heart-container">
-  <div class="heart"></div>
-</div>
-
-<div class="name">Kimi</div> <!-- Fixed name displayed below the heart -->
-
+    <!-- 看板娘 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 </body>
 </html>
