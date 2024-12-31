@@ -1,15 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>看板娘</title>
+    <title>烟花效果</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: explode 1s;
+        }
+        @keyframes explode {
+            0% { transform: scale(1); }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-    <!-- 看板娘 -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
-    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    <script>
+        function createFirework(e) {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+
+            // 设置随机颜色
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+            // 获取鼠标点击位置
+            firework.style.left = `${e.clientX}px`;
+            firework.style.top = `${e.clientY}px`;
+
+            // 添加到文档中
+            document.body.appendChild(firework);
+
+            // 移除烟花元素，避免内存泄露
+            firework.addEventListener('animationend', () => {
+                firework.remove();
+            });
+        }
+
+        // 监听鼠标点击事件
+        window.addEventListener('click', createFirework);
+    </script>
 </body>
 </html>
